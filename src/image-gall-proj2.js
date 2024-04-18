@@ -1,8 +1,7 @@
 import { html, css } from "lit";
 import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
-import "@lrnwebcomponents/rpg-character/rpg-character.js";
 
-export class imagegallproj2 extends DDD {
+export class ImageGallProj extends DDD {
   static get tag() {
     return "image-gall-proj2";
   }
@@ -16,7 +15,8 @@ constructor() {
       super.styles,
       css`
         :host {
-          display: center;
+          display: flex;
+          padding: var(--ddd-spacing-4);
        }
 
       .border-container {
@@ -25,38 +25,53 @@ constructor() {
         padding: var(--ddd-spacing-4);
         height: 500px;
         min-width: 100px;
+        align-items: center;
+        justify-content: center;
       }
 
-      .media-image {
+      .media-image-container {
         background-color: var(--ddd-theme-default-slateGray);
         color: var(--ddd-theme-default-slateGray);
         padding: var(--ddd-spacing-4);
-        height: 500px;
-        min-width: 100px;
+        height: 90%;
+        min-width: 90%;
+      }
+      
+      .media-image {
+        align-items: center;
+        justify-content: center;
       }
 
       .caption {
-
+        display: center;
       }
 
       .description {
-
+        display: center;
       }
 
       .play-list {
+        display: center;
+      }
 
+      .button-container {
+        display: flex;
+        height: 5%;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .arrow-forward {
-
+        margin: auto;
       }
 
       .arrow-back {
-
+        margin: auto;
       }
 
       .dialog-tag {
-
+        display: center;
       }
     `];
   }
@@ -64,14 +79,19 @@ constructor() {
   render() {
     return html`
     <div class="border-container">
-      <div class="media-image">
+      <div class="media-image-container">
+        <div class="media-image">
+          <img src="https://www.videogameshelf.com/wp-content/uploads/2013/04/Zelda-Ocarina-of-Time-Master-Sword.jpg">
+        </div>
         <div class="caption"></div>
         <div class="description"></div>
       </div>
+      <div class="button-container">
+        <button class="arrow-back"><-</button>
+        <button class="arrow-forward">-></button>
+      </div>
     </div>
     <div class="play-list">
-      <button class="arrow-forward"></button>
-      <button class="arrow-back"></button>
     </div>
     <div class="dialog-tag"></div>
   `;
@@ -84,4 +104,4 @@ constructor() {
   }
 }
 
-globalThis.customElements.define(imagegallproj2.tag, imagegallproj2);
+globalThis.customElements.define(ImageGallProj.tag, ImageGallProj);
